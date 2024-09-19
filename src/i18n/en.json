@@ -1,0 +1,20 @@
+{
+    "HOME": {
+        "TITLE": "Build now your Ultra Alien!",
+        "ORDER": "Build mine!"
+    },
+    "FOOTER": {
+        "ABOUT": "Create your own Omnitrix Alien by mixing the characteristics of your favorite heroes.",
+        "FOUND": "I finally found a place to set up my own Aliens",
+        "OMG": "Oh my God, what i've done?"
+    },
+    "MENU": {
+        "HOME": "Home",
+        "BET": "Bet",
+        "CART": "Cart"
+    },
+    "BUILD": {
+        "TITLE": "Customize your Robot!",
+        "ADD_CART": "Add Cart!"
+    }
+}
