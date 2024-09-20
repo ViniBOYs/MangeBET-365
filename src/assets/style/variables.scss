@@ -1,5 +1,6 @@
 :root {
     --app-background: #1c1b20;
+    --app-background-hover: #282829;
     --app-white: #fff;
     --app-card-background: #e8e7e1;
     --app-footer-background: #222222;
@@ -9,9 +10,14 @@
     --app-part-border: #aaa;
     --blue: #1e90ff;
 
-    --p0: 0px;
-    --p1: 0px;
-    --p2: 0px;
+    --p0: 79px;
+    --p1: 79px;
+    --p2: 79px;
+
+    --t0: 1000ms;
+    --t1: 1000ms;
+    --t2: 1000ms;
+
 
 
 }

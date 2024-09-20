@@ -1,40 +1,36 @@
 <script setup lang="ts">
-import { useCart } from '@/stores/Cart';
+  import { useCart } from '@/stores/Cart';
+  import apiCrypto from '@/services/services.config';
+  import { onMounted, ref } from 'vue';
+  
+  const solana = ref();
+  const fetchSolana = () => Promise
+    apiCrypto.get("/solusd").then((response)=>solana.value = response.data);
+  onMounted(fetchSolana);
+
+  const bitcoin = ref();
+  const fetchBitcoin = () => Promise
+    apiCrypto.get("/btcusd").then((response)=>bitcoin.value = response.data);
+  onMounted(fetchBitcoin);
+  
+  const ethereum = ref();
+  const fetchEthereum = () => Promise
+    apiCrypto.get("/ethusd").then((response)=>ethereum.value = response.data);
+  onMounted(fetchEthereum);
+
+  const avalanche = ref();
+  const fetchAvalanche = () => Promise
+    apiCrypto.get("/avaxusd").then((response)=>avalanche.value = response.data);
+  onMounted(fetchAvalanche);
 
 
 </script>
 
 <template>
-  <main>
-    <h1>Cart Page!</h1>
-    <table>
-      <thead>
-        <th>Item</th>
-        <th>Head</th>
-        <th>Torso</th>
-        <th>Base</th>
-        <th>Left Arm</th>
-        <th>Right Arm</th>
-        <th>Custo</th>
-        <th>Ação</th>
-      </thead>
-      <tbody>
-        <tr v-for="(robot,index) in useCart().robots" :key="index">
-          <td> {{ index }} </td>
-          <td> {{ robot.head.id }} - {{ robot.head.title }} </td> 
-          <!-- <td> {{ robot.head }} </td> -->
-          <td> {{ robot.torso.id }} - {{ robot.torso.title }} </td>
-          <td> {{ robot.base.id }} - {{ robot.base.title }} </td>
-          <td> {{ robot.leftArm.id }} - {{ robot.leftArm.title }} </td>
-          <td> {{ robot.rightArm.id }} - {{ robot.rightArm.title }} </td>
-          <td>R$:{{ robot.cost }}</td>
-          <td><button @click="useCart().removeCart(index)">Excluir</button></td>
-        </tr>
-        <tr>
-          <td colspan="5"><strong>Valor Total:</strong></td>
-          <td><strong>R$: {{ useCart().getTotalCost }}</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+  <h1>Hello World</h1>
+  <h2>Solana: ${{ solana.open }} USD</h2>
+  <h2>Bitcoin: ${{ bitcoin.open }} USD</h2>
+  <h2>Ethereum: ${{ ethereum.open }} USD</h2>
+  <h2>Avalanche: ${{ avalanche.open }} USD</h2>
+
 </template>

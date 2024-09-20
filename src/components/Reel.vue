@@ -1,47 +1,60 @@
-<script setup>
+<script setup lang="ts">
+    import { exit } from 'process';
+import { computed, onMounted, ref } from 'vue'
 
     const icon_height = 79,
-        icon_width = 79,
-        num_icons = 9;
-// altura imagem 711
+          num_icons = 9;
+    // altura imagem 711
 
     const props = defineProps({
         positionIndex: { type: Number },
+        roll: {type: Boolean}
     });
 
+    
+    var r: any = document.querySelector(':root')
+    var rs = getComputedStyle(r);
+ 
 
-    var r = document.querySelector(':root')
-    function myFunction_set() {
-        const rollPixelsToMove = (props.positionIndex + 2) * num_icons + Math.round(Math.random() * num_icons) * icon_height;
+    function rollComponent() {
 
+        const test = rs.getPropertyValue(`--p${props.positionIndex}`)
 
+        var anmt = props.positionIndex*200+3000; 
 
-        console.log("Qtde de Pixels:", `--p${props.positionIndex}`, rollPixelsToMove,"px");
-        r.style.setProperty(`--p${props.positionIndex}`, `${rollPixelsToMove}px`);
+        console.log("componente:",props.roll)
+        console.log("Faz",anmt)
+        console.log(test)
         
+        r.style.setProperty(`--p${props.positionIndex}`, `0px`);
+        r.style.setProperty(`--t${props.positionIndex}`, `${anmt}ms`);
         r.style.setProperty('--blue', 'red');
+
+        
+        setTimeout(() => {
+            const rollPixelsToMove = ((props.positionIndex + 2) * num_icons + Math.round(Math.random() * num_icons)) ;    
+            console.log("Qtde de Pixels:", `--p${props.positionIndex}`, rollPixelsToMove* icon_height,"px");
+            r.style.setProperty(`--p${props.positionIndex}`, `${rollPixelsToMove* icon_height}px`);
+        }, anmt+500);
     }
 
     function myFunction_get() {
         // Get the styles (properties and values) for the root
-        var rs = getComputedStyle(r);
+        // var rs = getComputedStyle(r);
         alert(
             "The value of --p0 is: " + rs.getPropertyValue('--p0') +
             "The value of --p1 is: " + rs.getPropertyValue('--p1') +
             "The value of --p2 is: " + rs.getPropertyValue('--p2')
         );
     }    
-    
-    // console.log("--/--/--");
-
-
-    
+ 
 </script>
 
 <template>
     <div :class="`reel index${props.positionIndex}`"/>
     <div class="box"></div>
-    <button type="button" @click="myFunction_set(),myFunction_get()">Ct</button>
+    <!-- style="position: fixed; top: 0; left:0; height: 20px; width: auto;" -->
+    <button type="button" @click="rollComponent()">{{props.roll}} </button>
 </template>
 
 <style scoped lang="scss">
@@ -71,17 +84,18 @@
     }
 
     .index0{
+        // transition: var(--t0);
         transition: 1000ms;
         background-position: 0 var(--p0);
     }
 
     .index1{
-        transition: 1000ms;
+        transition: var(--t1);
         background-position: 0 var(--p1);
     }
 
     .index2{
-        transition: 1000ms;
+        transition:  var(--t2);
         background-position: 0 var(--p2);
     }
 </style>
