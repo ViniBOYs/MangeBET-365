@@ -8,7 +8,7 @@
             <img src="/Cash-mangeBet.png" alt="MangeBet logo">
             <nav class="ml-5 flex">
                 <RouterLink class="menuDiv" to="/"> Home </RouterLink>
-                <RouterLink class="menuDiv" to="/cart"> Wallet</RouterLink>
+                <RouterLink class="menuDiv" to="/wallet"> Wallet</RouterLink>
                 <RouterLink class="menuDiv" to="/bet"> Bet </RouterLink>
             </nav>
         </div>        
