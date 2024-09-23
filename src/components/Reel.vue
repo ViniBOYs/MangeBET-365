@@ -12,19 +12,21 @@
     var r: any = document.querySelector(':root')
     var rs = getComputedStyle(r);
 
-    function rollComponent() {
+    function rollComponent(index:number) {
         
-        const test = rs.getPropertyValue(`--p${props.positionIndex}`)
+        const lastPosition = rs.getPropertyValue(`--p${props.positionIndex}`)
         var anmt = props.positionIndex*200+3000; 
 
-        console.log("componente:",props.positionIndex)
-        console.log("Faz",anmt)
-        console.log(test)
+        console.log("RollComponentParam:",index);
+        console.log("Componente Index:",props.positionIndex);
+        console.log("Animation Time:",anmt);
+        console.log("lastPosition:", lastPosition);
         
         r.style.setProperty(`--p${props.positionIndex}`, `0px`);
         r.style.setProperty(`--t${props.positionIndex}`, `${anmt}ms`);
         r.style.setProperty('--blue', 'red');
        
+        
         setTimeout(() => {
             const rollPixelsToMove = ((props.positionIndex + 2) * num_icons + Math.round(Math.random() * num_icons)) ;    
             console.log("Qtde de Pixels:", `--p${props.positionIndex}`, rollPixelsToMove* icon_height,"px");

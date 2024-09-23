@@ -62,9 +62,9 @@
 <template>
   <h1>Hello World</h1>
   <ConnectWalletButton @click="connect"/>
-  <!-- <h2>Solana: ${{ solana.open }} USD</h2>
+  <h2>Solana: ${{ solana.open }} USD</h2>
   <h2>Bitcoin: ${{ bitcoin.open }} USD</h2>
   <h2>Ethereum: ${{ ethereum.open }} USD</h2>
-  <h2>Avalanche: ${{ avalanche.open }} USD</h2> -->
+  <h2>Avalanche: ${{ avalanche.open }} USD</h2>
 
 </template>
