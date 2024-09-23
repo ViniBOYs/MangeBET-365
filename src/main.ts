@@ -2,6 +2,14 @@ import '@/assets/style/global.scss'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPlugin from 'pinia-plugin-persistedstate'
+import "vue-connect-wallet/dist/style.css";
+// import { ConnectWalletButton } from "vue-connect-wallet";
+
+// export default {
+//     components: {
+//       ConnectWalletButton,
+//     },
+//   };
 
 import App from './App.vue'
 import router from './router'
@@ -16,3 +24,6 @@ app.use(pinia)              //
 app.use(router)
 
 app.mount('#app')
+
+
+
