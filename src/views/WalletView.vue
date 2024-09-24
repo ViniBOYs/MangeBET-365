@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <h1>Hello World</h1>
+  <h1>Clique para conectar ao Meta-Mask</h1>
   <ConnectWalletButton @click="connect"/>
   <h2>Solana: ${{ solana.open }} USD</h2>
   <h2>Bitcoin: ${{ bitcoin.open }} USD</h2>

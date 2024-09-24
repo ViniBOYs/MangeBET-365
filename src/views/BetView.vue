@@ -143,7 +143,7 @@ import { onMounted, ref } from 'vue';
 
 
 
-  .slots {
+  .slots {  
     position: relative;
     width: 4 * $icon_width;
     height: 3.5 * $icon_height;
