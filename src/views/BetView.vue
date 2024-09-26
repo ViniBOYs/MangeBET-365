@@ -91,7 +91,6 @@ import { onMounted, ref } from 'vue';
   $num_icons: 9;
 
 
-  /* From Uiverse.io by elijahgummer */ 
   .golden-button {
     touch-action: manipulation;
     outline: none;
